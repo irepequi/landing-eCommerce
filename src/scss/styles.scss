@@ -1,0 +1,111 @@
+@import "variables";
+
+@font-face {
+  font-family: Archivo;
+  src: url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
+}
+
+//----------------------------------------------------------------------------
+
+* {
+  box-sizing: border-box;
+  font-family: "Archivo", sans-serif;
+  //   margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+body {
+  margin: 4vw;
+}
+
+/* ICON CART */
+.cart {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+
+  img {
+    width: 30px;
+  }
+
+  &:hover {
+  }
+}
+
+/* HR */
+hr {
+  background-color: $tertiary;
+  border: none;
+  height: 2px !important;
+  opacity: 1 !important;
+}
+
+//----------------------------------------------------------------------------
+/* BUTTONS */
+button {
+  background-color: $primary;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 235px;
+  height: 40px;
+  //   padding: 2px 30px;
+  //   margin: 14px 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &::after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    // padding: 2px 30px;
+    display: block;
+    transition: all 0.35s;
+    left: 0;
+    right: 0;
+    top: 100%;
+    bottom: -100%;
+  }
+
+  &:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+  }
+}
+
+//----------------------------------------------------------------------------
+/* PAGINATION */
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  & > a {
+    margin-right: $leading;
+    text-decoration: none;
+    color: $light_grey;
+  }
+
+  //   .desactive {
+  //     margin-right: $leading;
+  //     text-decoration: none;
+  //     color: $light_grey;
+  //   }
+
+  .active {
+    color: $primary;
+    font-weight: 600;
+  }
+}

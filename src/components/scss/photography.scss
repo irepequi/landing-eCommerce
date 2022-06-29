@@ -1,0 +1,118 @@
+@import "../../scss/variables";
+
+//----------------------------------------------------------------------------
+/* PHOTOGRAPHY */
+
+.top_photography {
+  display: flex;
+
+  h2 {
+    span {
+      font-weight: normal;
+      color: $secondary;
+    }
+  }
+
+  .sort {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: $secondary;
+    font-size: 0.8rem;
+    margin-left: auto;
+
+    :not(:first-child) {
+      margin-left: $space;
+    }
+
+    span {
+      transform: rotate(90deg);
+      font-size: 0.8rem;
+    }
+
+    select {
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+.photoAndFilter {
+  display: flex;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+
+  & > label {
+    margin-bottom: $space;
+  }
+
+  .line {
+    border-bottom: 2px solid $tertiary;
+    width: 170px;
+    margin-top: 18px;
+    margin-bottom: $space;
+  }
+}
+
+main {
+  .card {
+    width: 283px;
+
+    .best_seller {
+      width: 130px;
+      background-color: white;
+      font-size: 0.8em;
+      font-weight: 700;
+      margin-top: -404px;
+      //   margin-right: 230px;
+      //   margin-right: 80vw;
+      padding: 12px 30px 12px 30px;
+      position: relative;
+    }
+
+    img {
+      &:hover > button {
+        cursor: pointer;
+        visibility: visible;
+      }
+    }
+
+    button {
+      margin-top: 309px;
+      width: 100%;
+      transition: all 500ms ease-out;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    // TODO - AL ENTRAR EN LA WEB HACE UNA ANIMACION COMO BAJANDO, REVISAR!!!!!
+
+    .info_card {
+      margin-top: $leading;
+
+      * {
+        margin-bottom: $leading;
+        margin-top: 0;
+      }
+      .category {
+        text-transform: capitalize;
+        font-weight: 700;
+        color: $gray;
+      }
+
+      .price {
+        text-transform: capitalize;
+        color: $gray;
+        font-size: medium;
+      }
+
+      h3 {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

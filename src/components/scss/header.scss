@@ -1,0 +1,129 @@
+@import "../../scss/variables";
+
+//----------------------------------------------------------------------------
+/* HEADER */
+
+header {
+  .cart-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .word_photo_day {
+    .photo_day {
+      width: 100%;
+    }
+
+    p {
+      width: 166px;
+      background-color: white;
+      font-size: 0.8em;
+      font-weight: 700;
+      //   margin-right: 230px;
+      //   margin-right: 80vw;
+      margin-top: -42px;
+      padding: 12px 30px 12px 30px;
+      position: relative;
+    }
+  }
+
+  section {
+    display: flex;
+    // flex-wrap: wrap;
+
+    .info_photo_day {
+      //   margin-right: 335px;
+      width: 60%;
+
+      .category {
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+
+      .description,
+      .category {
+        color: $gray;
+      }
+    }
+
+    .people_buy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 40%;
+
+      figure {
+        // margin-bottom: $section;
+
+        img {
+          margin-left: 14px;
+        }
+      }
+
+      .subtitle {
+        font-size: 0.8rem;
+        color: $gray;
+        margin-bottom: 12px !important;
+        margin: 0;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------------------------
+/* PHOTOGRAPHY */
+
+.top_photography {
+  display: flex;
+
+  h2 {
+    span {
+      font-weight: normal;
+      color: $secondary;
+    }
+  }
+
+  .sort {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: $secondary;
+    font-size: 0.8rem;
+    margin-left: auto;
+
+    :not(:first-child) {
+      margin-left: 14px;
+    }
+
+    span {
+      transform: rotate(90deg);
+      font-size: 0.8rem;
+    }
+
+    select {
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+
+  & > label {
+    margin-bottom: 14px;
+  }
+
+  hr {
+    background-color: $tertiary;
+    border: none;
+    height: 2px !important;
+    opacity: 1 !important;
+  }
+}
