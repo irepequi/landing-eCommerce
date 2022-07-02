@@ -14,12 +14,19 @@ export const Header = ({ dataOnePage, cart, setCart }) => {
       </div>
 
       <figure className="word_photo_day">
-        <img
-          className="photo_day"
-          src={"/images/Rectangle1.png"}
-          alt="photo of the day"
-        />
-        {/* <img src={dataOnePage.image.src} alt={dataOnePage.image.alt} /> */}
+        {dataOnePage ? (
+          <img
+            className="photo_day"
+            src={"/images/Rectangle1.png"}
+            alt="photo of the day"
+          />
+        ) : (
+          <img
+            className="photo_day"
+            src={dataOnePage.image.src}
+            alt={dataOnePage.image.alt}
+          />
+        )}
         <p>Photo of the day</p>
       </figure>
 

@@ -82,9 +82,8 @@ function App() {
             alt="cart"
           />
         </div>
-
-        <hr />
       </nav>
+      <hr />
 
       {openCart && (
         <Cart cart={cart} setCart={setCart} openToCart={openToCart} />

@@ -34,6 +34,7 @@ export const Cart = ({ cart, setCart }) => {
                     </div>
                     <img src={e.image.src} alt={e.image.alt} />
                   </div>
+
                   <hr />
                 </div>
               );

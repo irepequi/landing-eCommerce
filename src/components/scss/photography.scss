@@ -22,19 +22,30 @@
     margin-left: auto;
     user-select: none;
 
-    :not(:first-child) {
-      margin-left: $space;
+    .icon_filter {
+      display: none;
     }
 
-    span {
-      transform: rotate(90deg);
-      font-size: 0.8rem;
-    }
+    .icon_sort_select {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 
-    select {
-      background: transparent;
-      border: none;
-      cursor: pointer;
+      :not(:first-child) {
+        margin-left: $space;
+      }
+
+      span {
+        // transform: rotate(90deg);
+        // font-size: 0.8rem;
+        font-size: 1rem;
+      }
+
+      select {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -62,9 +73,19 @@ aside {
   }
 }
 
+// main {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   grid-column-gap: $section;
+//   grid-row-gap: 10px;
+// }
+
 main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: $section;
-  grid-row-gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  .card {
+    flex: 1 350px;
+  }
 }

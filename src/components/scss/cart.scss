@@ -4,7 +4,7 @@
 /* CART */
 .cart {
   position: absolute;
-  top: 98px;
+  top: 78px;
   right: 4vw;
   z-index: 2;
   background-color: white;
@@ -17,6 +17,7 @@
   .no_products {
     display: flex;
     font-size: 24px;
+    color: $secondary;
 
     p {
       margin: 0;
@@ -38,18 +39,34 @@
     span {
       cursor: pointer;
       user-select: none;
+      margin-bottom: $space;
     }
   }
 
   .item {
     display: flex;
+    margin-right: $space;
+    margin-left: $space;
 
     .info_item {
+      width: 300px;
       display: flex;
       flex-direction: column;
+      justify-content: space-evenly;
+
+      p {
+        color: $gray;
+        margin: 0;
+      }
+
+      h5 {
+        margin: 0;
+      }
     }
 
     img {
+      width: 200px;
+
       height: 100px;
       object-fit: cover;
       object-position: center;

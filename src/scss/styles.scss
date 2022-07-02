@@ -5,6 +5,102 @@
   src: url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
 }
 
+/* MOBILE  */
+/* Portrait */
+@media (max-width: 767px) and (orientation: portrait) {
+  figure {
+    margin: 0;
+  }
+
+  /* HEADER */
+  header {
+    .cart-bar {
+      button {
+        position: absolute;
+        margin-top: 500px;
+        width: 92%;
+      }
+    }
+
+    section {
+      display: block;
+      margin-top: 90px;
+
+      .info_photo_day {
+        width: 100%;
+      }
+
+      .people_buy {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+
+        figure {
+          display: flex;
+          justify-content: flex-end;
+
+          .photo_day {
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+
+  /* PHOTOGRAPHY */
+  .top_photography {
+    h2 {
+      font-size: 1rem;
+    }
+
+    .icon_filter {
+      display: block !important;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .icon_sort_select {
+      display: none !important;
+    }
+  }
+
+  .photoAndFilter {
+    aside {
+      display: none;
+    }
+  }
+
+  .card {
+    width: 100%;
+
+    .img_card,
+    img {
+      width: 100% !important;
+    }
+
+    button {
+      width: 100%;
+      opacity: 100 !important;
+      visibility: visible !important;
+    }
+
+    .item {
+      .info_item {
+        width: 300px;
+      }
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  /* CART */
+  .cart {
+    width: 93%;
+  }
+}
+
 //----------------------------------------------------------------------------
 
 * {
@@ -24,35 +120,39 @@ body {
 
 //----------------------------------------------------------------------------
 /* NAVBAR */
-
-/* LOGO */
-.logo {
-  height: 100%;
+nav {
   display: flex;
-  align-items: center;
-}
+  /* LOGO */
+  .logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 80%;
+  }
 
-/* ICON CART */
-.icon_cart {
-  display: flex;
-  justify-content: flex-end;
+  /* ICON CART */
+  .icon_cart {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
 
-  img {
-    cursor: pointer;
-    width: 30px;
+    img {
+      cursor: pointer;
+      width: 30px;
+      user-select: none;
+    }
+  }
+
+  .numberCart {
+    color: white;
+    font-weight: bold;
+    background-color: $primary;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: $leading;
+    padding: 2px 5px;
     user-select: none;
   }
-}
-
-.numberCart {
-  color: white;
-  font-weight: bold;
-  background-color: $primary;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: $leading;
-  padding: 2px 5px;
-  user-select: none;
 }
 
 //----------------------------------------------------------------------------

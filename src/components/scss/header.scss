@@ -21,8 +21,6 @@ header {
       background-color: white;
       font-size: 0.8em;
       font-weight: 700;
-      //   margin-right: 230px;
-      //   margin-right: 80vw;
       margin-top: -42px;
       padding: 12px 30px 12px 30px;
       position: relative;
@@ -59,10 +57,8 @@ header {
       align-items: flex-end;
       width: 40%;
 
-      figure {
-        img {
-          margin-left: 14px;
-        }
+      .photo_day {
+        margin-left: 14px;
       }
 
       .subtitle {
