@@ -1,23 +1,28 @@
-import React from "react";
+//COMPONENTS
+import { Button } from "./Button";
 
 //SCSS STYLE
 import "./scss/header.scss";
 
-export const Header = ({ dataOnePage }) => {
+export const Header = ({ dataOnePage, cart, setCart }) => {
+  console.log(dataOnePage);
   return (
     <header>
       <div className="cart-bar">
         <h1>{dataOnePage.name}</h1>
-        <button>ADD TO CART</button>
+        <Button item={dataOnePage} cart={cart} setCart={setCart} />
       </div>
+
       <figure className="word_photo_day">
         <img
           className="photo_day"
           src={"/images/Rectangle1.png"}
-          alt="photo-day"
+          alt="photo of the day"
         />
+        {/* <img src={dataOnePage.image.src} alt={dataOnePage.image.alt} /> */}
         <p>Photo of the day</p>
       </figure>
+
       <section>
         <div className="info_photo_day">
           <h2>About the {dataOnePage.name}</h2>

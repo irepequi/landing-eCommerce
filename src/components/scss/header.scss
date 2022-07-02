@@ -13,6 +13,7 @@ header {
   .word_photo_day {
     .photo_day {
       width: 100%;
+      user-select: none;
     }
 
     p {
@@ -25,6 +26,7 @@ header {
       margin-top: -42px;
       padding: 12px 30px 12px 30px;
       position: relative;
+      user-select: none;
     }
   }
 
@@ -58,8 +60,6 @@ header {
       width: 40%;
 
       figure {
-        // margin-bottom: $section;
-
         img {
           margin-left: 14px;
         }
@@ -72,58 +72,5 @@ header {
         margin: 0;
       }
     }
-  }
-}
-
-//----------------------------------------------------------------------------
-/* PHOTOGRAPHY */
-
-.top_photography {
-  display: flex;
-
-  h2 {
-    span {
-      font-weight: normal;
-      color: $secondary;
-    }
-  }
-
-  .sort {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: $secondary;
-    font-size: 0.8rem;
-    margin-left: auto;
-
-    :not(:first-child) {
-      margin-left: 14px;
-    }
-
-    span {
-      transform: rotate(90deg);
-      font-size: 0.8rem;
-    }
-
-    select {
-      background: transparent;
-      border: none;
-    }
-  }
-}
-
-aside {
-  display: flex;
-  flex-direction: column;
-
-  & > label {
-    margin-bottom: 14px;
-  }
-
-  hr {
-    background-color: $tertiary;
-    border: none;
-    height: 2px !important;
-    opacity: 1 !important;
   }
 }

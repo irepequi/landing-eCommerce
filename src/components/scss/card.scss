@@ -1,0 +1,79 @@
+@import "../../scss/variables";
+
+//----------------------------------------------------------------------------
+/* CARD */
+
+.card {
+  width: 283px;
+  margin-bottom: $section;
+
+  figure {
+    user-select: none;
+
+    img {
+      height: 400px;
+      width: 283px;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      top: -400px;
+      z-index: -1;
+    }
+  }
+
+  .img_card {
+    width: 283px;
+    height: 413px;
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin: 0;
+    cursor: pointer;
+
+    &:hover > button {
+      visibility: visible;
+      opacity: 100;
+    }
+
+    .best_seller {
+      width: 130px;
+      background-color: white;
+      font-size: 0.8em;
+      font-weight: 700;
+      padding: 12px 30px 12px 30px;
+      user-select: none;
+    }
+
+    button {
+      width: 100%;
+      transition: all 500ms ease-out;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .info_card {
+    margin-top: -390px;
+
+    * {
+      margin-bottom: $leading;
+      margin-top: 0;
+    }
+    .category {
+      text-transform: capitalize;
+      font-weight: 700;
+      color: $gray;
+    }
+
+    .price {
+      text-transform: capitalize;
+      color: $gray;
+      font-size: medium;
+    }
+
+    h3 {
+      text-transform: capitalize;
+    }
+  }
+}

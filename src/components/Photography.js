@@ -1,11 +1,43 @@
-import React from "react";
+import { Card } from "./Card";
 
 //SCSS STYLE
 import "./scss/photography.scss";
 
-export const Photography = ({ onePage, dataOnePage }) => {
-  console.log("---------------", onePage.data);
-  // const { name } = onePage.data[0];
+export const Photography = ({
+  setSortValue,
+  onePage,
+  setOnePage,
+  categories,
+  setCategories,
+  cart,
+  setCart,
+}) => {
+  const handleChange = (e) => {
+    setSortValue(e.target.value);
+  };
+
+  // onchange de filtro
+  const handleChangeChecks = () => {
+    let arrTemp = [];
+
+    for (let i = 0; i < document.formCheck.elements.length; i++) {
+      if (document.formCheck.elements[i].checked === true) {
+        arrTemp.splice(i, 1, document.formCheck.elements[i].id);
+      }
+    }
+
+    arrTemp.length === 0
+      ? setCategories([
+          "people",
+          "food",
+          "landmarks",
+          "pets",
+          "premium",
+          "cities",
+          "nature",
+        ])
+      : setCategories(arrTemp);
+  };
 
   return (
     <>
@@ -17,9 +49,9 @@ export const Photography = ({ onePage, dataOnePage }) => {
         <div className="sort">
           <span className="material-icons">sync_alt</span>
           <p>Sort By</p>
-          <select>
-            <option>Price</option>
-            <option>Name</option>
+          <select onChange={handleChange}>
+            <option value="price">Price</option>
+            <option value="name">Name</option>
           </select>
         </div>
       </div>
@@ -28,105 +60,112 @@ export const Photography = ({ onePage, dataOnePage }) => {
         {/* FILTER --------------------------- */}
         <aside>
           <h3>Category</h3>
-          <label htmlFor="cbox1">
-            <input type="checkbox" id="cbox1" value="people" />
-            People
-          </label>
+          <form name="formCheck">
+            <label htmlFor="people">
+              <input
+                type="checkbox"
+                id="people"
+                value="people"
+                onChange={handleChangeChecks}
+              />
+              People
+            </label>
 
-          <label htmlFor="cbox2">
-            <input type="checkbox" id="cbox2" value="premium" />
-            Premium
-          </label>
+            <label htmlFor="premium">
+              <input
+                type="checkbox"
+                id="premium"
+                value="premium"
+                onChange={handleChangeChecks}
+              />
+              Premium
+            </label>
 
-          <label htmlFor="cbox3">
-            <input type="checkbox" id="cbox3" value="pets" />
-            Pets
-          </label>
+            <label htmlFor="pets">
+              <input
+                type="checkbox"
+                id="pets"
+                value="pets"
+                onChange={handleChangeChecks}
+              />
+              Pets
+            </label>
 
-          <label htmlFor="cbox4">
-            <input type="checkbox" id="cbox4" value="Food" />
-            Food
-          </label>
+            <label htmlFor="food">
+              <input
+                type="checkbox"
+                id="food"
+                value="food"
+                onChange={handleChangeChecks}
+              />
+              Food
+            </label>
 
-          <label htmlFor="cbox5">
-            <input type="checkbox" id="cbox5" value="Landmarks" />
-            Landmarks
-          </label>
+            <label htmlFor="landmarks">
+              <input
+                type="checkbox"
+                id="landmarks"
+                value="landmarks"
+                onChange={handleChangeChecks}
+              />
+              Landmarks
+            </label>
 
-          <label htmlFor="cbox6">
-            <input type="checkbox" id="cbox6" value="Cities" />
-            Cities
-          </label>
+            <label htmlFor="cities">
+              <input
+                type="checkbox"
+                id="cities"
+                value="cities"
+                onChange={handleChangeChecks}
+              />
+              Cities
+            </label>
 
-          <label htmlFor="cbox7">
-            <input type="checkbox" id="cbox7" value="Nature" />
-            Nature
-          </label>
+            <label htmlFor="nature">
+              <input
+                type="checkbox"
+                id="nature"
+                value="nature"
+                onChange={handleChangeChecks}
+              />
+              Nature
+            </label>
+          </form>
 
           <div className="line"></div>
 
           <h3>Price range</h3>
-          <label htmlFor="cbox1">
-            <input type="checkbox" id="cbox1" value="lower20" />
-            Lower than $20
-          </label>
+          <form>
+            <label htmlFor="cbox1">
+              <input type="checkbox" id="cbox1" value="lower20" />
+              Lower than $20
+            </label>
 
-          <label htmlFor="cbox2">
-            <input type="checkbox" id="cbox2" value="20between100" />
-            $20 - $100
-          </label>
+            <label htmlFor="cbox2">
+              <input type="checkbox" id="cbox2" value="20between100" />
+              $20 - $100
+            </label>
 
-          <label htmlFor="cbox3">
-            <input type="checkbox" id="cbox3" value="100between200" />
-            $100 - $200
-          </label>
+            <label htmlFor="cbox3">
+              <input type="checkbox" id="cbox3" value="100between200" />
+              $100 - $200
+            </label>
 
-          <label htmlFor="cbox4">
-            <input type="checkbox" id="cbox4" value="more200" />
-            More than $200
-          </label>
+            <label htmlFor="cbox4">
+              <input type="checkbox" id="cbox4" value="more200" />
+              More than $200
+            </label>
+          </form>
         </aside>
 
-        {/* PHOTOS --------------------------- */}
+        {/* ITEMS (PHOTOS) --------------------------- */}
         <main>
-          <div className="card">
-            <img src={"/images/Rectangle2.5.png"} alt="cart" />
-            <p className="best_seller">Best Seller</p>
-
-            <button>ADD TO CART</button>
-            <div className="info_card">
-              <p className="category">People</p>
-              <h3>Red Bench</h3>
-              <p className="price">3.89€</p>
-            </div>
-          </div>
-
-          {/* {onePage.data.map((item, index) => (
-          <div className="card" key={index}>
-            {item.bestseller && 
-            <p className="best_seller">Best Seller</p>
-            }
-            <button>ADD TO CART</button>
-            <p>{item.category}</p>
-            <h3>{item.name}</h3>
-            <p>
-            item.price<span>€</span>
-          </p>
-          </div>
-        ))} */}
-
-          {/* FILTRO *************************  */}
-          {/* <div className="investment-list">
-          {foundInvestment && foundInvestment.length > 0 ? (
-            foundInvestment.map((investment) => (
-              <li key={investment} className="">
-                <span className="investment">{investment}</span>
-              </li>
-            ))
-          ) : (
-            <h1>No results found!</h1>
-          )}
-        </div> */}
+          {onePage.data &&
+            onePage.data.map((item, index) => (
+              <div className="card" key={index}>
+                <Card item={item} cart={cart} setCart={setCart} />
+              </div>
+            ))}
         </main>
       </div>
     </>
