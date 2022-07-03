@@ -63,6 +63,25 @@ function App() {
     setOpenCart(!openCart);
   };
 
+  const cambiarpag = (url) => {
+    axios({
+      method: "post",
+      url: url,
+      headers: { key: "Accept", value: "application/json", type: "text" },
+      data: {
+        sort: {
+          key: sortValue,
+          type: "ASC",
+        },
+        categories: categories,
+      },
+    }).then((res) => {
+      setOnePage(res.data.data);
+      setLinks(res.data.data.links);
+      setSimbolo(res.data.data.links.label);
+    });
+  };
+
   return (
     <>
       <nav>
@@ -106,21 +125,23 @@ function App() {
 
       {/* PAGINATION */}
       <section className="pagination">
-        {/* <a className="active">{onePage.links[0].label}</a> */}
         {links &&
           links.map((link, index) => {
             return (
               <div key={index}>
                 <a
-                  onClick={link.src}
+                  onClick={() => cambiarpag(link.url)}
                   className={link.active ? "active" : undefined}
                 >
-                  {link.label}
+                  {index === 0
+                    ? "<"
+                    : index === links.length - 1
+                    ? ">"
+                    : link.label}
                 </a>
               </div>
             );
           })}
-        {/* <a className="active">{onePage.links[10].label}</a>    */}
       </section>
     </>
   );

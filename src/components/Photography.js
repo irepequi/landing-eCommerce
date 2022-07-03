@@ -3,6 +3,7 @@ import { useState } from "react";
 //COMPONENTS
 import { Card } from "./Card";
 import { Filter } from "./Filter";
+import { FilterMobile } from "./FilterMobile";
 
 //SCSS STYLE
 import "./scss/photography.scss";
@@ -17,6 +18,7 @@ export const Photography = ({
   setCart,
 }) => {
   const [openFilter, setOpenFilter] = useState(false);
+  // const [arrTemp, setArrTemp] = useState([]);
 
   const openToFilter = () => {
     setOpenFilter(!openFilter);
@@ -30,11 +32,38 @@ export const Photography = ({
   const handleChangeChecks = () => {
     let arrTemp = [];
 
+    console.log(document.formCheck.elements);
+
     for (let i = 0; i < document.formCheck.elements.length; i++) {
       if (document.formCheck.elements[i].checked === true) {
         arrTemp.splice(i, 1, document.formCheck.elements[i].id);
       }
     }
+    console.log(arrTemp);
+
+    arrTemp.length === 0
+      ? setCategories([
+          "people",
+          "food",
+          "landmarks",
+          "pets",
+          "premium",
+          "cities",
+          "nature",
+        ])
+      : setCategories(arrTemp);
+  };
+
+  // onchange de filtro mobile
+  const handleChangeChecksMobile = () => {
+    let arrTemp = [];
+
+    for (let i = 0; i < document.formCheckMobile.elements.length; i++) {
+      if (document.formCheckMobile.elements[i].checked === true) {
+        arrTemp.splice(i, 1, document.formCheckMobile.elements[i].id);
+      }
+    }
+    console.log(arrTemp);
 
     arrTemp.length === 0
       ? setCategories([
@@ -50,10 +79,8 @@ export const Photography = ({
   };
 
   const clearChecks = () => {
-    for (let i = 0; i < document.formCheck.elements.length; i++) {
-      if (document.formCheck.elements[i].checked === true) {
-        document.formCheck.elements[i].checked = false;
-      }
+    for (let i = 0; i < document.formCheckMobile.elements.length; i++) {
+      document.formCheckMobile.elements[i].checked = false;
     }
   };
 
@@ -104,10 +131,10 @@ export const Photography = ({
       {/* FILTER MOBILE  */}
       {openFilter && (
         <div className="filter_mobile">
-          <Filter handleChangeChecks={handleChangeChecks} />
+          <FilterMobile handleChangeChecksMobile={handleChangeChecksMobile} />
 
           <div className="buttons">
-            <button className="clear_button" onClick={() => clearChecks}>
+            <button className="clear_button" onClick={clearChecks}>
               CLEAR
             </button>
             <button onClick={openToFilter}>SAVE</button>
