@@ -56,29 +56,7 @@
 
 aside {
   min-width: 200px;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    & > label {
-      margin-bottom: $space;
-    }
-  }
-
-  .line {
-    border-bottom: 2px solid $tertiary;
-    max-width: 170px;
-    margin-top: 18px;
-    margin-bottom: $space;
-  }
 }
-
-// main {
-//   display: grid;
-//   grid-template-columns: repeat(3, 1fr);
-//   grid-column-gap: $section;
-//   grid-row-gap: 10px;
-// }
 
 main {
   display: flex;
@@ -88,4 +66,8 @@ main {
   .card {
     flex: 1 350px;
   }
+}
+
+.aside_mobile {
+  display: none;
 }

@@ -5,7 +5,6 @@ import { Button } from "./Button";
 import "./scss/header.scss";
 
 export const Header = ({ dataOnePage, cart, setCart }) => {
-  console.log(dataOnePage);
   return (
     <header>
       <div className="cart-bar">

@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+
+//----------------------------------------------------------------------------
+/* FILTER */
+
+form {
+  display: flex;
+  flex-direction: column;
+  & > label {
+    margin-bottom: $space;
+  }
+}
+
+.line {
+  border-bottom: 2px solid $tertiary;
+  max-width: 170px;
+  margin-top: 18px;
+  margin-bottom: $space;
+}

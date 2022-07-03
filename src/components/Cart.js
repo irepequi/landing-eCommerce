@@ -39,7 +39,9 @@ export const Cart = ({ cart, setCart }) => {
                 </div>
               );
             })}
-            <button onClick={() => setCart([])}>CLEAR</button>
+            <button onClick={() => setCart([])} className="clear_button">
+              CLEAR
+            </button>
           </div>
         )}
       </div>

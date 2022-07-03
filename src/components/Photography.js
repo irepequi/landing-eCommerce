@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+//COMPONENTS
 import { Card } from "./Card";
 import { Filter } from "./Filter";
 
@@ -47,6 +49,14 @@ export const Photography = ({
       : setCategories(arrTemp);
   };
 
+  const clearChecks = () => {
+    for (let i = 0; i < document.formCheck.elements.length; i++) {
+      if (document.formCheck.elements[i].checked === true) {
+        document.formCheck.elements[i].checked = false;
+      }
+    }
+  };
+
   return (
     <>
       <div className="top_photography">
@@ -73,15 +83,14 @@ export const Photography = ({
       </div>
 
       <div className="photoAndFilter">
-        {/* FILTER --------------------------- */}
+        {/* FILTER LAPTOP */}
         <aside>
-          <Filter handleChangeChecks={handleChangeChecks} />
-          {openFilter && <Filter handleChangeChecks={handleChangeChecks} />}
+          <div className="filter_laptop">
+            <Filter handleChangeChecks={handleChangeChecks} />
+          </div>
         </aside>
 
-        {/* TODO - AÑADIR UNA CLASE PARA PONERLA EN DISPLAY:NONE O DISPLAY:BLOCK  */}
-
-        {/* ITEMS (PHOTOS) --------------------------- */}
+        {/* ITEMS (PHOTOS) */}
         <main>
           {onePage.data &&
             onePage.data.map((item, index) => (
@@ -91,6 +100,20 @@ export const Photography = ({
             ))}
         </main>
       </div>
+
+      {/* FILTER MOBILE  */}
+      {openFilter && (
+        <div className="filter_mobile">
+          <Filter handleChangeChecks={handleChangeChecks} />
+
+          <div className="buttons">
+            <button className="clear_button" onClick={() => clearChecks}>
+              CLEAR
+            </button>
+            <button onClick={openToFilter}>SAVE</button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

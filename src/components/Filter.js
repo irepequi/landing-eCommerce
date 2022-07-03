@@ -1,5 +1,8 @@
 import React from "react";
 
+//SCSS
+import "./scss/filter.scss";
+
 export const Filter = ({ handleChangeChecks }) => {
   return (
     <>
