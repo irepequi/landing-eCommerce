@@ -18,7 +18,6 @@ export const Photography = ({
   setCart,
 }) => {
   const [openFilter, setOpenFilter] = useState(false);
-  // const [arrTemp, setArrTemp] = useState([]);
 
   const openToFilter = () => {
     setOpenFilter(!openFilter);
@@ -32,14 +31,11 @@ export const Photography = ({
   const handleChangeChecks = () => {
     let arrTemp = [];
 
-    console.log(document.formCheck.elements);
-
     for (let i = 0; i < document.formCheck.elements.length; i++) {
       if (document.formCheck.elements[i].checked === true) {
         arrTemp.splice(i, 1, document.formCheck.elements[i].id);
       }
     }
-    console.log(arrTemp);
 
     arrTemp.length === 0
       ? setCategories([
@@ -54,7 +50,7 @@ export const Photography = ({
       : setCategories(arrTemp);
   };
 
-  // onchange de filtro mobile
+  // onchange --> filter mobile
   const handleChangeChecksMobile = () => {
     let arrTemp = [];
 
@@ -63,7 +59,6 @@ export const Photography = ({
         arrTemp.splice(i, 1, document.formCheckMobile.elements[i].id);
       }
     }
-    console.log(arrTemp);
 
     arrTemp.length === 0
       ? setCategories([
@@ -78,6 +73,7 @@ export const Photography = ({
       : setCategories(arrTemp);
   };
 
+  //clear active checks from filters
   const clearChecks = () => {
     for (let i = 0; i < document.formCheckMobile.elements.length; i++) {
       document.formCheckMobile.elements[i].checked = false;

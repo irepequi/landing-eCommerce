@@ -11,7 +11,7 @@ import "./scss/styles.scss";
 
 function App() {
   const [onePage, setOnePage] = useState([]);
-  const [dataOnePage, setDataOnePage] = useState([]);
+  const [dataOnePage, setDataOnePage] = useState();
   const [links, setLinks] = useState([]);
   const [cart, setCart] = useState([]);
   const [openCart, setOpenCart] = useState(false);
@@ -27,7 +27,7 @@ function App() {
     "nature",
   ]);
 
-  //recoge la info de: de la primera página filtrada, los links y los label para la paginación
+  //collects the info of: the first filtered page, the links and the label for the pagination
   useEffect(() => {
     axios({
       method: "post",
@@ -47,23 +47,22 @@ function App() {
     });
   }, [categories, sortValue]);
 
-  //recoge la info del primer producto de la primera página sin filtros
+  //collects the info of the first product on the first page without filters
   useEffect(() => {
     axios
       .post("https://technical-frontend-api.bokokode.com/api/products")
 
       .then((res) => {
-        // console.log("esto es res.data.data", res.data.data);
         setDataOnePage(res.data.data.data[0]);
       });
   }, []);
 
-  //oculto/visible carrito de la compra
+  //hidden/visible cart
   const openToCart = () => {
     setOpenCart(!openCart);
   };
 
-  const cambiarpag = (url) => {
+  const changePage = (url) => {
     axios({
       method: "post",
       url: url,
@@ -90,11 +89,12 @@ function App() {
         </figure>
 
         <div className="icon_cart">
-          {/* numeración de articulos en el carrito */}
+          {/* number of items in cart */}
           {cart && cart.length > 0 && (
             <div className="numberCart">{cart.length}</div>
           )}
 
+          {/* CART ICON */}
           <img
             onClick={openToCart}
             src={"/images/shopping-cart.png"}
@@ -104,14 +104,17 @@ function App() {
       </nav>
       <hr />
 
+      {/* CART */}
       {openCart && (
         <Cart cart={cart} setCart={setCart} openToCart={openToCart} />
       )}
 
+      {/* HEADER */}
       <Header cart={cart} setCart={setCart} dataOnePage={dataOnePage} />
 
       <hr />
 
+      {/* PHOTOGRAPHY */}
       <Photography
         setSortValue={setSortValue}
         cart={cart}
@@ -123,14 +126,14 @@ function App() {
         dataOnePage={dataOnePage}
       />
 
-      {/* PAGINATION */}
+      {/* PAGES */}
       <section className="pagination">
         {links &&
           links.map((link, index) => {
             return (
               <div key={index}>
                 <a
-                  onClick={() => cambiarpag(link.url)}
+                  onClick={() => changePage(link.url)}
                   className={link.active ? "active" : undefined}
                 >
                   {index === 0
